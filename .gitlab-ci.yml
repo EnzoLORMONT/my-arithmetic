@@ -10,7 +10,7 @@ test:
   stage: test
   image: python:3.10
   script:
-    - export PYTHONPATH=$CI_PROJECT_DIR/src
+    - cd my-arithmetic-enzo/
     - pip install -r requirements.txt
     - pytest --cov=src tests/
   artifacts:
