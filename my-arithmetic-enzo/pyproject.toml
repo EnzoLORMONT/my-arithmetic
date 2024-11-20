@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "my-arithmetic-enzo"
+dynamic = ["version"]
+description = ''
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Enzo Lormont", email = "enzo.lormont@etudiant.univ-lr.fr" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/Enzo Lormont/my-arithmetic-enzo#readme"
+Issues = "https://github.com/Enzo Lormont/my-arithmetic-enzo/issues"
+Source = "https://github.com/Enzo Lormont/my-arithmetic-enzo"
+
+[tool.hatch.version]
+path = "src/my_arithmetic_enzo/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/my_arithmetic_enzo tests}"
+
+[tool.coverage.run]
+source_pkgs = ["my_arithmetic_enzo", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/my_arithmetic_enzo/__about__.py",
+]
+
+[tool.coverage.paths]
+my_arithmetic_enzo = ["src/my_arithmetic_enzo", "*/my-arithmetic-enzo/src/my_arithmetic_enzo"]
+tests = ["tests", "*/my-arithmetic-enzo/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
