@@ -12,7 +12,7 @@ test:
   script:
     - cd my-arithmetic-enzo/
     - pip install -r requirements.txt
-    - pytest --cov=src tests/ --import-mode=importlib
+    - pytest --cov=src tests/
   artifacts:
     paths:
       - htmlcov/
