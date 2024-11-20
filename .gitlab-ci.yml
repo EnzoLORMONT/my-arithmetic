@@ -12,9 +12,9 @@ test:
   script:
     - cd my-arithmetic-enzo/
     - pip install -r requirements.txt
-    - pytest --cov=src --cov-report=html tests/
+    - pytest --cov=src --cov-report=html --cov-report=term
     - mv htmlcov ../htmlcov
   artifacts:
     paths:
       - htmlcov/
-  coverage: '/^TOTAL.*\s+(\d+%)$/'
+  coverage: '/\s+(\d+\%)$/'
