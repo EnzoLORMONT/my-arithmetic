@@ -1,2 +1,3 @@
 .venv
 config/.runner_system_id
+**/__pycache__
