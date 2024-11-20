@@ -17,5 +17,4 @@ test:
   artifacts:
     paths:
       - htmlcov/
-    expire_in: 1 week
   coverage: '/^TOTAL.*\s+(\d+%)$/'
