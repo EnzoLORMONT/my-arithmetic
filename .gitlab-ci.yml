@@ -13,6 +13,7 @@ test:
     - cd my-arithmetic-enzo/
     - pip install -r requirements.txt
     - pytest --cov=src --cov-report=html tests/
+    - ls -la
   artifacts:
     paths:
       - htmlcov/
