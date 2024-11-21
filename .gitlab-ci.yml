@@ -19,6 +19,8 @@ test:
   coverage: '/\s+(\d+\%)$/'
 
 deploy_stable:
+  tags:
+      - docker
   stage: deploy
   script:
     - pip install -r requirements.txt
