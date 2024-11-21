@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
@@ -32,7 +32,7 @@ Issues = "https://github.com/Enzo Lormont/my-arithmetic-enzo/issues"
 Source = "https://github.com/Enzo Lormont/my-arithmetic-enzo"
 
 [tool.hatch.version]
-path = "src/my_arithmetic_enzo/__about__.py"
+source = "vcs"
 
 [tool.hatch.envs.types]
 extra-dependencies = [
