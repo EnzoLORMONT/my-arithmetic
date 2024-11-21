@@ -49,7 +49,7 @@ deploy_develop:
 sync-with-github:
   tags:
     - docker
-  image: alpine/git:latest
+  image: bitnami/git:latest
   before_script:
     - git config --global user.name "${GITLAB_USER_NAME}"
     - git config --global user.email "${GITLAB_USER_EMAIL}"
