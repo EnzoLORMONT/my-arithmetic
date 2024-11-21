@@ -1,5 +1,6 @@
 stages:
   - test
+  - deploy
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
@@ -10,11 +11,19 @@ test:
   stage: test
   image: python:3.10
   script:
-    - cd my-arithmetic-enzo/
     - pip install -r requirements.txt
     - pytest --cov=src --cov-report=html --cov-report=term
-    - mv htmlcov ../htmlcov
   artifacts:
     paths:
       - htmlcov/
   coverage: '/\s+(\d+\%)$/'
+
+deploy_stable:
+  stage: deploy
+  script:
+    - pip install -r requirements.txt
+    - hatch build
+    - echo "Contents of dist/:"
+    - ls -la dist/
+  only:
+    - tags
