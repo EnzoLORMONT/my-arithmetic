@@ -24,9 +24,24 @@ deploy_stable:
   image: python:3.10
   stage: deploy
   script:
+    - echo "deployment on stable servers"
     - pip install -r requirements.txt
     - hatch build
     - echo "Contents of dist/:"
     - ls -la dist/
   only:
     - tags
+
+deploy_develop:
+    tags:
+        - docker
+    image: python:3.10
+    stage: deploy
+    script:
+      - echo "deployment on develop servers"
+      - pip install -r requirements.txt
+      - hatch build
+      - echo "Contents of dist/:"
+      - ls -la dist/
+    only:
+      - develop
