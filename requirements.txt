@@ -3,3 +3,4 @@ hatch-vcs
 pytest-cov
 sphinx
 sphinx-rtd-theme
+coveralls
