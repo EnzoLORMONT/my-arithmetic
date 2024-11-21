@@ -1,0 +1,35 @@
+name: Deploy Workflow
+
+on:
+  push:
+    branches:
+      - develop
+  create:
+    tags: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install hatch hatch-vcs
+          pip install -r requirements.txt
+
+      - name: Build the project
+        run: hatch build
+
+      - name: Display dist contents
+        run: |
+          echo "Deployment message: my-arithmetic-${{ github.actor }} deployment on stable servers"
+          ls -la dist/
+
